@@ -13,7 +13,9 @@ public class Acelerometro extends Activity implements SensorEventListener {
 	private SensorManager sensorManager;
 	double ax,ay,az;   // these are the acceleration in x,y and z axis
     String textoTela;
-	
+    TextView x, y, z;
+    Cliente conexao;
+    
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,21 @@ public class Acelerometro extends Activity implements SensorEventListener {
         //setContentView(R.layout.activity_acelerometro);
         sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-    }
+    
+        x = (TextView) this.findViewById(R.id.x_axis);
+	    y = (TextView) this.findViewById(R.id.y_axis);
+	    z = (TextView) this.findViewById(R.id.z_axis);
+	    
+	    //Iniciar Conexão
+	    try {
+			conexao = new Cliente("localhost", 6700);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Erro na conexão.");
+		}
+	    
+	}
 	
 	@Override
 	   public void onAccuracyChanged(Sensor arg0, int arg1) {
@@ -31,12 +47,6 @@ public class Acelerometro extends Activity implements SensorEventListener {
 
 	@Override
 	public void onSensorChanged(SensorEvent event) {
-	    TextView x;
-	    x = (TextView) this.findViewById(R.id.x_axis);
-	    TextView y;
-	    y = (TextView) this.findViewById(R.id.y_axis);
-	    TextView z;
-	    z = (TextView) this.findViewById(R.id.z_axis);
 	    if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 			ax = event.values[0];
 			ay = event.values[1];
@@ -44,7 +54,13 @@ public class Acelerometro extends Activity implements SensorEventListener {
 			x.setText(ax+"");
 			y.setText(ay+"");
 			z.setText(az+"");
-			
+			try {
+				conexao.enviarDados();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("Perda de Conexão");
+			}
 		}
     
 	}

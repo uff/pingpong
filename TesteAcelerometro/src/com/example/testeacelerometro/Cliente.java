@@ -20,8 +20,8 @@ public class Cliente {
 	
     public Cliente(String ip, int port) throws Exception {
         inFromUser = new BufferedReader(new InputStreamReader(System.in));
-        //Socket clientSocket = new Socket(ip, porta);
-        clientSocket = new Socket("localhost", 6700);
+        clientSocket = new Socket(ip, port);
+        //clientSocket = new Socket("localhost", 6700);
         outToServer = new DataOutputStream(clientSocket.getOutputStream());
         inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
