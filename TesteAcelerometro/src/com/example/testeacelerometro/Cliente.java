@@ -33,5 +33,6 @@ public class Cliente {
     	String sentence = "Testando Socket";
     	outToServer.writeBytes(sentence + '\n');
         modifiedSentence = inFromServer.readLine();
+        //comentario teste
     }
 }
