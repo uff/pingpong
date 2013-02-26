@@ -25,6 +25,9 @@ public class Cliente {
         outToServer = new DataOutputStream(clientSocket.getOutputStream());
         inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
+        outToServer.writeBytes("olá pc!" + '\n');
+        modifiedSentence = inFromServer.readLine();
+        
     }
     
     public void enviarDados() throws Exception {
