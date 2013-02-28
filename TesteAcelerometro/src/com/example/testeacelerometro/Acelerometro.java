@@ -38,7 +38,7 @@ public class Acelerometro extends Activity implements SensorEventListener {
 	    //Iniciar Conexão
 	    try {
 	    	x.setText("try");
-			conexao = new Cliente("192.168.43.231", 6660);
+			conexao = new Cliente("192.168", 6660);
 			y.setText("conectou");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
