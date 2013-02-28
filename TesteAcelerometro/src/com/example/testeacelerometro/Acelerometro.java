@@ -24,7 +24,6 @@ public class Acelerometro extends Activity implements SensorEventListener {
         setContentView(R.layout.main);
         
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
         StrictMode.setThreadPolicy(policy); 
         
         //setContentView(R.layout.activity_acelerometro);
@@ -37,10 +36,8 @@ public class Acelerometro extends Activity implements SensorEventListener {
 	    
 	    //Iniciar Conexão
 	    try {
-	    	x.setText("try");
-			conexao = new Cliente("192.168", 6660);
-			y.setText("conectou");
-		} catch (Exception e) {
+	    	conexao = new Cliente("192.168.43.231", 6660);
+	    } catch (Exception e) {
 			// TODO Auto-generated catch block
 			x.setText("não conectou");
 			e.printStackTrace();
@@ -55,23 +52,23 @@ public class Acelerometro extends Activity implements SensorEventListener {
 
 	@Override
 	public void onSensorChanged(SensorEvent event) {
-	/*
+	
 		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 			ax = event.values[0];
 			ay = event.values[1];
 			az = event.values[2];
-			x.setText(ax+"");
-			y.setText(ay+"");
+			//x.setText(ax+"");
+			//y.setText(ay+"");
 			z.setText(az+"");
 			try {
-				conexao.enviarDados();
+				conexao.enviarDados(az);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				System.out.println("Perda de Conexão");
 			}
 		}
-    */
+    
 	}
 
     @Override

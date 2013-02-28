@@ -30,11 +30,11 @@ public class Cliente {
         
     }
     
-    public void enviarDados() throws Exception {
+    public void enviarDados(double z) throws Exception {
     
         //String sentence = inFromUser.readLine();
-    	String sentence = "Testando Socket";
-    	outToServer.writeBytes(sentence + '\n');
+    	//String sentence = "Testando Socket";
+    	outToServer.writeBytes("" + z + '\n');
         modifiedSentence = inFromServer.readLine();
         //comentario teste
     }
