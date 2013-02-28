@@ -5,6 +5,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.app.Activity;
 import android.view.Menu;
 import android.widget.*;
@@ -22,6 +23,10 @@ public class Acelerometro extends Activity implements SensorEventListener {
         
         setContentView(R.layout.main);
         
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+        StrictMode.setThreadPolicy(policy); 
+        
         //setContentView(R.layout.activity_acelerometro);
         sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
@@ -33,7 +38,7 @@ public class Acelerometro extends Activity implements SensorEventListener {
 	    //Iniciar Conexão
 	    try {
 	    	x.setText("try");
-			conexao = new Cliente("10.0.2.2", 6700);
+			conexao = new Cliente("192.168.43.231", 6660);
 			y.setText("conectou");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
