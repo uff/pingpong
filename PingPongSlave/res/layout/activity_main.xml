@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/xyzTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/xyz"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tvx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/xyzTextView"
+        android:layout_below="@+id/xyzTextView"
+        android:layout_marginTop="18dp"
+        android:text="@string/eixox"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvx"
+        android:layout_below="@+id/tvx"
+        android:text="@string/eixoy"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/tvz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tvy"
+        android:layout_below="@+id/tvy"
+        android:text="@string/eixoz"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvx"
+        android:layout_alignBottom="@+id/tvx"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/tvx"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvy"
+        android:layout_alignBottom="@+id/tvy"
+        android:layout_alignLeft="@+id/x"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/y"
+        android:layout_below="@+id/y"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/conTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvz"
+        android:layout_below="@+id/z"
+        android:layout_marginTop="22dp"
+        android:text="@string/con"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/IPTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/conTextView"
+        android:layout_marginTop="17dp"
+        android:text="@string/ip"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/IPEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/IPTextView"
+        android:layout_toRightOf="@+id/IPTextView"
+        android:ems="30"
+        android:inputType="text" 
+        android:hint="@string/iphint" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/portaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/conTextView"
+        android:layout_below="@+id/IPTextView"
+        android:text="@string/porta"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <EditText
+        android:id="@+id/portaEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/portaTextView"
+        android:layout_toRightOf="@+id/portaTextView"
+        android:layout_alignLeft="@+id/IPEditText"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="@string/portahint" >
+        
+
+        <requestFocus />
+    </EditText>
+
+    <ToggleButton
+        android:id="@+id/toggleButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/portaTextView"
+        android:layout_below="@+id/portaTextView"
+        android:layout_marginTop="17dp"
+        android:onClick="onToggleClicked"
+        android:text="@string/conbutton"
+        android:textOff="Desconectado"
+        android:textOn="Conectado" />
+
+</RelativeLayout>
