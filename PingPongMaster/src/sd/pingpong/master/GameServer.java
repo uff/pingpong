@@ -18,14 +18,19 @@ class GameServer {
 		win.pack();
 
 		win.setVisible(true);
-		
+		/*
 		ServerSocket welcomeSocket = new ServerSocket(6900);
 		while(true) {
 			Socket connectionSocket = welcomeSocket.accept();
 			ConnectionThread s = new ConnectionThread(connectionSocket);
 			new Thread(s).start();
-			System.out.println("z:" + Double.parseDouble(s.clientSentence));
-			conteudo.sendAceleration(Double.parseDouble(s.clientSentence));
-      }
+			
+			System.out.println("z:" + s.clientSentence);
+			
+			if (s.clientSentence != null){
+				conteudo.sendAceleration(Double.parseDouble(s.clientSentence));
+			}
+		}
+		*/
    }
 }

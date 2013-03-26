@@ -3,6 +3,7 @@ package sd.pingpong.master;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -17,7 +18,7 @@ class BBPanel extends JPanel {
 
 	/*\* Creates a panel with the controls and bouncing ball display. \*/
 
-	BBPanel() {
+	BBPanel() throws IOException {
 
 		//-\- Create components
 
@@ -69,6 +70,7 @@ class BBPanel extends JPanel {
 
 	}//end constructor
 	
+	//Deprecated Method
 	public void sendAceleration(double aceleration){
 		jogo.setAceleration(aceleration);
 	}

@@ -16,6 +16,11 @@ public class Racket {
 		mY = inicialY - (height/2);
 	}
 	
+	public void setAceleration(String a){
+		double aD = Double.parseDouble(a);
+		this.aY = aD*10;
+	}
+	
 	public void recalcularLocal() {
 
 		//--\- Get the the current size of the Panel.
