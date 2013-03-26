@@ -20,7 +20,7 @@ public class ConnectionThread implements Runnable{
 			inFromClient = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			outToClient = new DataOutputStream(s.getOutputStream());
 			while((clientSentence = inFromClient.readLine())!=null){
-				System.out.println(clientSentence);
+				//System.out.println(clientSentence);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -35,7 +35,7 @@ public class ConnectionThread implements Runnable{
 			}
 			Thread.currentThread().interrupt();
 		}
-		return;
+		return ;
 	}
 		
 }
